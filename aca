@@ -7,9 +7,11 @@ local _189707 = Instance.new("Frame")
 local RigM = Instance.new("TextButton")
 local UIGridLayout = Instance.new("UIGridLayout")
 local NoFall = Instance.new("TextButton")
+local TPSA = Instance.new("TextButton")
 ACA.Name = "ACA"
-ACA.Parent = game:GetService("CoreGui")
+ACA.Parent = game:WaitForChild("CoreGui")
 ACA.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = ACA
 MainFrame.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
@@ -17,6 +19,7 @@ MainFrame.BackgroundTransparency = 0.700
 MainFrame.BorderSizePixel = 0
 MainFrame.Position = UDim2.new(0.5, -120, 0.5, -145)
 MainFrame.Size = UDim2.new(0, 241, 0, 291)
+
 Title.Name = "Title"
 Title.Parent = MainFrame
 Title.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
@@ -28,6 +31,7 @@ Title.Text = "ACA Hub - Invalid Game"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.TextSize = 14.000
 Title.TextWrapped = true
+
 PenumbraShadow.Name = "PenumbraShadow"
 PenumbraShadow.Parent = MainFrame
 PenumbraShadow.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -40,13 +44,14 @@ PenumbraShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
 PenumbraShadow.ImageTransparency = 0.880
 PenumbraShadow.ScaleType = Enum.ScaleType.Slice
 PenumbraShadow.SliceCenter = Rect.new(10, 10, 118, 118)
+
 _189707.Name = "189707"
 _189707.Parent = MainFrame
 _189707.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 _189707.BackgroundTransparency = 1.000
 _189707.Position = UDim2.new(0.5, -113, 0.979381442, -253)
 _189707.Size = UDim2.new(0, 227, 0, 252)
-_189707.Visible = false
+
 RigM.Name = "RigM"
 RigM.Parent = _189707
 RigM.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
@@ -57,10 +62,12 @@ RigM.Font = Enum.Font.Code
 RigM.Text = "Rig Map Select"
 RigM.TextColor3 = Color3.fromRGB(255, 255, 255)
 RigM.TextSize = 14.000
+
 UIGridLayout.Parent = _189707
 UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIGridLayout.CellPadding = UDim2.new(0, 23, 0, 5)
 UIGridLayout.CellSize = UDim2.new(0, 101, 0, 27)
+
 NoFall.Name = "NoFall"
 NoFall.Parent = _189707
 NoFall.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
@@ -71,13 +78,24 @@ NoFall.Font = Enum.Font.Code
 NoFall.Text = "No Fall DMG"
 NoFall.TextColor3 = Color3.fromRGB(255, 255, 255)
 NoFall.TextSize = 14.000
-local function BANE_fake_script()
+
+TPSA.Name = "TPSA"
+TPSA.Parent = _189707
+TPSA.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
+TPSA.BackgroundTransparency = 0.700
+TPSA.BorderSizePixel = 0
+TPSA.Size = UDim2.new(0, 101, 0, 27)
+TPSA.Font = Enum.Font.Code
+TPSA.Text = "TP Safe Area"
+TPSA.TextColor3 = Color3.fromRGB(255, 255, 255)
+TPSA.TextSize = 14.000
+local function RBESR_fake_script()
 	local script = Instance.new('LocalScript', Title)
 
 	script.Parent.Text = "ACA Hub - "..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 end
-coroutine.wrap(BANE_fake_script)()
-local function WTBVT_fake_script()
+coroutine.wrap(RBESR_fake_script)()
+local function YBVK_fake_script()
 	local script = Instance.new('LocalScript', RigM)
 
 	script.Parent.MouseButton1Click:Connect(function()
@@ -88,42 +106,52 @@ local function WTBVT_fake_script()
 		end
 	end)
 end
-coroutine.wrap(WTBVT_fake_script)()
-local function HTNIVV_fake_script()
+coroutine.wrap(YBVK_fake_script)()
+local function UBNR_fake_script()
 	local script = Instance.new('LocalScript', NoFall)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		if game:GetService("Players").LocalPlayer.Character:FindFirstChild("FallDamageScript") then
+		if game:GetService("Players").LocalPlayer.Character:FindFirstChild("FallDamageScript")then
 			game:GetService("Players").LocalPlayer.Character:FindFirstChild("FallDamageScript"):Destroy()
-			end
+		end
 	end)
 end
-coroutine.wrap(HTNIVV_fake_script)()
-local function GYYV_fake_script()
+coroutine.wrap(UBNR_fake_script)()
+local function PBNHX_fake_script()
+	local script = Instance.new('LocalScript', TPSA)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(-245, 180, 305)
+	end)
+end
+coroutine.wrap(PBNHX_fake_script)()
+local function GQLU_fake_script()
 	local script = Instance.new('LocalScript', MainFrame)
 
 	script.Parent.Title.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1  then
 			local lastMousePos = Vector2.new(game.Players.LocalPlayer:GetMouse().X,game.Players.LocalPlayer:GetMouse().Y)
-			while game:GetService("UserInputService"):IsMouseButtonPressed(Enum.UserInputType.MouseButton1 ) do
-				local delta = Vector2.new(game.Players.LocalPlayer:GetMouse().X,game.Players.LocalPlayer:GetMouse().Y) - lastMousePos
+			while game:GetService("UserInputService"):IsMouseButtonPressed(Enum.UserInputType.MouseButton1 )do
+				local delta = Vector2.new(game.Players.LocalPlayer:GetMouse().X,game.Players.LocalPlayer:GetMouse().Y)- lastMousePos
 				script.Parent.Parent.MainFrame.Position = script.Parent.Parent.MainFrame.Position + UDim2.new(0,delta.X,0,delta.Y)
 				lastMousePos = Vector2.new(game.Players.LocalPlayer:GetMouse().X,game.Players.LocalPlayer:GetMouse().Y)
-	  		 	wait()
-	 		end
-	 	end
+				wait()
+			end
+		end
 	end)
 end
-coroutine.wrap(GYYV_fake_script)()
-local function NBMFC_fake_script()
+coroutine.wrap(GQLU_fake_script)()
+local function WYBM_fake_script()
 	local script = Instance.new('LocalScript', ACA)
 
-	if script.Parent.MainFrame:FindFirstChild(game.PlaceId) then
+	if script.Parent.MainFrame:FindFirstChild(game.PlaceId)then
 		script.Parent.MainFrame:FindFirstChild(game.PlaceId).Visible = true
 	else
-		warn("------------------------------\n⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇\nTHIS IS A INVALID GAME, PLEASE\nCHECK THE AVAILABLE GAMES IN\nTHE DISCORD: acahub.repl.co/\n⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆\n------------------------------")
+		warn("\n------------------------------\n⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇\nTHIS IS A INVALID GAME, PLEASE\nCHECK THE AVAILABLE GAMES IN\nTHE DISCORD: acahub.repl.co/\n⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆\n------------------------------")
 		script.Parent:Destroy()
 	end
 end
-coroutine.wrap(NBMFC_fake_script)()
+	coroutine.wrap(WYBM_fake_script)()
+else
+	warn("\n------------------------------\n⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇\nACA HUB IS ALREADY EXECUTED.\nacahub.repl.co/\n⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆\n------------------------------")	
 end
